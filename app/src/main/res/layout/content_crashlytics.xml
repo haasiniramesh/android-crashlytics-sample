@@ -13,8 +13,12 @@
     tools:context="timeinc.android.crashlytics.sample.CrashlyticsActivity"
     tools:showIn="@layout/activity_crashlytics">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_width="wrap_content"
+        android:text="Force Crash!"
+        android:onClick="forceCrash"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
