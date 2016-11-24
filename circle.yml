@@ -28,4 +28,4 @@ deployment:
    production:
       branch: master
       commands:
-         - ./gradlew crashlyticsUploadDistributionRelease
+         - if [ -e ./gradlew ]; then ./gradlew crashlyticsUploadDistributionRelease;else gradle crashlyticsUploadDistributionRelease;fi
