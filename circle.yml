@@ -2,7 +2,9 @@ machine:
   java:
     version: openjdk8
   environment:
+    ANDROID_HOME: /usr/local/android-sdk-linux
     PATH: "~/$CIRCLE_PROJECT_REPONAME/gradle-2.14.1/bin:$PATH"
+    TERM: "dumb"
     ADB_INSTALL_TIMEOUT: 80
 
 general:
