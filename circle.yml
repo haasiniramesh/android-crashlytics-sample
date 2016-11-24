@@ -22,7 +22,7 @@ dependencies:
 
 test:
    override:
-    - if [ -e ./gradlew ]; then ./gradlew assembleRelease -PdisablePreDex;else gradle assembleRelease -PdisablePreDex;fi
+    - if [ -e ./gradlew ]; then ./gradlew assembleDebug -PdisablePreDex;else gradle assembleDebug -PdisablePreDex;fi
 
 deployment:
    production:
