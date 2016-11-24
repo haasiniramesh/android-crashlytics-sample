@@ -1,0 +1,22 @@
+machine:
+  java:
+    version: openjdk8
+  environment:
+    ADB_INSTALL_TIMEOUT: 80
+    GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
+
+general:
+  artifacts:
+      - ./app/build/outputs/apk/
+      - ./app/build/outputs/reports/androidTests/connected/
+
+dependencies:
+   pre:
+      - echo y | android update sdk --no-ui --all --filter "tools"
+      - echo y | android update sdk --no-ui --all --filter "build-tools-24.0.1"
+      - echo y | android update sdk --no-ui --all --filter "extra-google-m2repository"
+      - echo y | android update sdk --no-ui --all --filter "extra-android-m2repository"
+
+test:
+   override:
+      - ./gradlew clean test assembleRelease -PdisablePreDex -i -s -Pcom.android.build.threadPoolSize=1 -Dorg.gradle.parallel=false -Dorg.gradle.jvmargs="-Xms512m -Xmx512m" -Dorg.gradle.daemon=false
