@@ -11,6 +11,7 @@ general:
 
 dependencies:
    pre:
+      - wget "https://services.gradle.org/distributions/gradle-2.14.1-bin.zip"; unzip gradle-2.14.1-bin.zip
       - ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | android update sdk --no-ui --all --filter tools,extra-google-m2repository,extra-android-m2repository
       - echo y | android update sdk --no-ui --all --filter build-tools-24.0.1
 
