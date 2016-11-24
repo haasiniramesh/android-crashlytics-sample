@@ -17,4 +17,4 @@ dependencies:
 
 test:
    override:
-      - ./gradlew clean test assembleRelease -PdisablePreDex -i -s -Pcom.android.build.threadPoolSize=1 -Dorg.gradle.parallel=false -Dorg.gradle.jvmargs="-Xms512m -Xmx512m" -Dorg.gradle.daemon=false
+      - ./gradlew clean assembleRelease -PdisablePreDex
