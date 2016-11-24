@@ -15,9 +15,9 @@ dependencies:
       - ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | android update sdk --no-ui --all --filter tools,platform-tools,android-24,extra-google-m2repository,extra-android-support,extra-android-m2repository
       - echo y | android update sdk --no-ui --all --filter build-tools-24.0.1
 
-#test:
-#   override:
-#    - if [ -e ./gradlew ]; then ./gradlew assembleRelease -PdisablePreDex;else gradle assembleRelease -PdisablePreDex;fi
+test:
+   override:
+    - if [ -e ./gradlew ]; then ./gradlew assembleRelease -PdisablePreDex;else gradle assembleRelease -PdisablePreDex;fi
 
 deployment:
    production:
