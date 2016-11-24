@@ -17,4 +17,5 @@ dependencies:
 
 test:
    override:
-      - ./gradlew clean assembleRelease -PdisablePreDex
+    - if [ -e ./gradlew ]; then ./gradlew assembleRelease -PdisablePreDex;else gradle assembleRelease -PdisablePreDex;fi
+    - cp -r app/build/outputs $CIRCLE_ARTIFACTS
