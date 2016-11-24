@@ -8,14 +8,12 @@ machine:
 general:
   artifacts:
       - ./app/build/outputs/apk/
-      - ./app/build/outputs/reports/androidTests/connected/
 
 dependencies:
    pre:
-      - echo y | android update sdk --no-ui --all --filter "tools"
-      - echo y | android update sdk --no-ui --all --filter "build-tools-24.0.1"
-      - echo y | android update sdk --no-ui --all --filter "extra-google-m2repository"
-      - echo y | android update sdk --no-ui --all --filter "extra-android-m2repository"
+      - wget "https://services.gradle.org/distributions/gradle-2.14.1-bin.zip"; unzip gradle-2.14.1-bin.zip
+      - ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | android update sdk --no-ui --all --filter tools,platform-tools,android-24,extra-google-m2repository,extra-google-google_play_services,extra-android-support,extra-android-m2repository
+      - echo y | android update sdk --no-ui --all --filter build-tools-24.0.1
 
 test:
    override:
