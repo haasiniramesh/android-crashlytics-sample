@@ -2,10 +2,15 @@ machine:
   java:
     version: openjdk8
   environment:
+    ANDROID_HOME: /usr/local/android-sdk-linux
     PATH: "~/$CIRCLE_PROJECT_REPONAME/gradle-2.14.1/bin:$PATH"
+    TERM: "dumb"
     ADB_INSTALL_TIMEOUT: 80
 
 general:
+  branches:
+    only:
+      - master # list of branches to build
   artifacts:
       - ./app/build/outputs/apk/
 
@@ -18,4 +23,9 @@ dependencies:
 test:
    override:
     - if [ -e ./gradlew ]; then ./gradlew assembleRelease -PdisablePreDex;else gradle assembleRelease -PdisablePreDex;fi
-    #- cp -r app/build/outputs $CIRCLE_ARTIFACTS
+
+deployment:
+   production:
+      branch: master
+      commands:
+         - ./gradlew crashlyticsUploadDistributionRelease
