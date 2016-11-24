@@ -2,8 +2,8 @@ machine:
   java:
     version: openjdk8
   environment:
+    PATH: "~/$CIRCLE_PROJECT_REPONAME/gradle-2.14.1/bin:$PATH"
     ADB_INSTALL_TIMEOUT: 80
-    GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
 
 general:
   artifacts:
