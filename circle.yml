@@ -8,6 +8,9 @@ machine:
     ADB_INSTALL_TIMEOUT: 80
 
 general:
+  branches:
+    only:
+      - master # list of branches to build
   artifacts:
       - ./app/build/outputs/apk/
 
@@ -23,6 +26,6 @@ test:
 
 deployment:
    production:
-      branch: automate_beta_release_in_rabric
+      branch: master
       commands:
          - ./gradlew crashlyticsUploadDistributionRelease
