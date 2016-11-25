@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">android-crashlytics-sample</string>
-    <string name="action_logging">Custom logging</string>
+    <string name="action_logging1">Log Action 1</string>
+    <string name="action_logging2">Log Action 2</string>
+    <string name="action_logging3">Log Action 3</string>
+    <string name="action_logging4">Log Action 4</string>
+    <string name="action_logging5">Log Action 5</string>
 </resources>

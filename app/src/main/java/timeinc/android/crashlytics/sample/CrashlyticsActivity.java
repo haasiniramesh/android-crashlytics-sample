@@ -45,16 +45,28 @@ public class CrashlyticsActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_custom_logging) {
-            Crashlytics.log("Higgs-Boson detected! Running out...");
+        if (id == R.id.log_action_1) {
+            Crashlytics.log("opened default news section...");
+            return true;
+        } else if (id == R.id.log_action_1) {
+            Crashlytics.log("opened default score section...");
+            return true;
+        } else if (id == R.id.log_action_2) {
+            Crashlytics.log("opened default mysi section...");
+            return true;
+        } else if (id == R.id.log_action_3) {
+            Crashlytics.log("opened default 10spot section...");
+            return true;
+        } else if (id == R.id.log_action_4) {
+            Crashlytics.log("opened default opened article, article id: 0000001");
+            return true;
+        } else if (id == R.id.log_action_5) {
+            Crashlytics.log("opened default opened article, article id: 0000002");
             return true;
         }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -62,18 +74,33 @@ public class CrashlyticsActivity extends AppCompatActivity {
     private void logUser() {
         Log.d(this.getClass().getSimpleName(), "logUser");
         // You can call any combination of these three methods
-        Crashlytics.setUserIdentifier("00003");
-        Crashlytics.setUserEmail("anandhar@timeinc.com");
-        Crashlytics.setUserName("Anandhar");
+        Crashlytics.setUserIdentifier("333333");
+        Crashlytics.setUserEmail("anandhar3@timeinc.com");
+        Crashlytics.setUserName("Anandhar3");
     }
 
     public void forceCrash(View view) {
-        Crashlytics.setString("last_ui_action", "Article_open");
-        Crashlytics.setFloat("last_article_id", 11111);
-        Crashlytics.setBool("last_is_from_notification", false);
-        Crashlytics.setDouble("last_user_id",00003);
-        throw new NullPointerException("This is a crash");
+        triggerExceptionOne();
     }
 
+    protected void triggerExceptionOne() {
+        Crashlytics.setString("last_ui_action", "Open Article");
+        Crashlytics.setFloat("last_article_id", 0000001);
+        Crashlytics.setBool("is_from_notification", false);
+        Crashlytics.setDouble("user_id", 111111);
+        throw new ArrayIndexOutOfBoundsException("Test: invalid team data");
+    }
+
+    public void crashMe(View view) {
+        triggerExceptionTwo();
+    }
+
+    protected void triggerExceptionTwo() {
+        Crashlytics.setString("last_ui_action", "Open Score");
+        Crashlytics.setFloat("last_article_id", 0000002);
+        Crashlytics.setBool("is_from_notification", true);
+        Crashlytics.setDouble("user_id", 222222);
+        throw new IllegalStateException("Test: parsing failed, invalid json");
+    }
 
 }

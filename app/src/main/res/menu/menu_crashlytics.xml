@@ -3,8 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="timeinc.android.crashlytics.sample.CrashlyticsActivity">
     <item
-        android:id="@+id/action_custom_logging"
+        android:id="@+id/log_action_1"
         android:orderInCategory="100"
-        android:title="@string/action_logging"
+        android:title="@string/action_logging1"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/log_action_2"
+        android:orderInCategory="100"
+        android:title="@string/action_logging2"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/log_action_3"
+        android:orderInCategory="100"
+        android:title="@string/action_logging3"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/log_action_4"
+        android:orderInCategory="100"
+        android:title="@string/action_logging4"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/log_action_5"
+        android:orderInCategory="100"
+        android:title="@string/action_logging5"
         app:showAsAction="never" />
 </menu>
